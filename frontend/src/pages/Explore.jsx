@@ -24,7 +24,7 @@ const itemVariants = {
 // ✨ NEW: Added floating animation variants
 const floatingVariants = {
   initial: { y: 0 },
-  animate: { 
+  animate: {
     y: [-10, 10, -10],
     transition: {
       duration: 4,
@@ -37,7 +37,7 @@ const floatingVariants = {
 // ✨ NEW: Added sparkle animation variants
 const sparkleVariants = {
   initial: { scale: 0, rotate: 0 },
-  animate: { 
+  animate: {
     scale: [0, 1, 0],
     rotate: [0, 180, 360],
     transition: {
@@ -71,18 +71,28 @@ const RecipeCard = ({ recipe, accent, onClick }) => (
           <FiStar className="w-3 h-3 fill-yellow-400 text-yellow-400" />
           4.8
         </div>
-        <img
-          src={recipe.imageUrl}
-          alt={recipe.title}
-          className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-        />
-        {/* ✨ NEW: Added gradient overlay for better text readability */}
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
+          <picture>
+            {recipe.images?.avif && (
+              <source srcSet={recipe.images.avif} type="image/avif" />
+            )}
+            {recipe.images?.webp && (
+              <source srcSet={recipe.images.webp} type="image/webp" />
+            )}
+            <img
+              src={recipe.images?.jpg || recipe.images?.webp || recipe.images?.avif}
+              alt={recipe.title}
+              className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+              loading="lazy"
+            />
+          </picture>
+
+          {/* ✨ NEW: Added gradient overlay for better text readability */}
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/30 to-transparent" />
       </div>
       <div className="p-5 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2 truncate">{recipe.title}</h3>
         <p className="text-sm text-slate-600 dark:text-slate-300 line-clamp-3 flex-grow">{recipe.description}</p>
-        
+
         {/* ✨ NEW: Added cooking time and servings info */}
         <div className="flex items-center gap-4 mt-3 text-xs text-slate-500 dark:text-slate-400">
           <div className="flex items-center gap-1">
@@ -94,7 +104,7 @@ const RecipeCard = ({ recipe, accent, onClick }) => (
             4 servings
           </div>
         </div>
-        
+
         <div className="mt-4">
           <span className="inline-flex items-center text-sm font-semibold text-slate-700 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r from-pink-500 to-violet-500">
             View Recipe
@@ -113,7 +123,7 @@ const NoResults = () => (
     animate={{ opacity: 1, scale: 1 }}
     className="flex flex-col items-center justify-center py-12 w-full text-center"
   >
-    <motion.div 
+    <motion.div
       variants={floatingVariants}
       initial="initial"
       animate="animate"
@@ -137,7 +147,7 @@ const NoResults = () => (
       >
         <HiSparkles className="w-4 h-4" />
       </motion.div>
-      
+
       <GiKnifeFork className="mx-auto text-5xl text-gray-400 dark:text-gray-500 mb-4" />
       <p className="text-gray-600 dark:text-gray-300 text-lg font-medium">
         No recipes found.
@@ -181,7 +191,7 @@ const FeaturedRecipe = ({ recipe, navigate }) => (
             <HiSparkles className="text-white w-3 h-3" />
           </motion.div>
         </motion.div>
-        
+
         {/* Content Section - More Compact */}
         <div className="flex-1 text-center md:text-left">
           <motion.div
@@ -258,7 +268,7 @@ const RecipeSection = ({ config, searchQuery, navigate }) => {
                 />
               ))
             ) : (
-              !isInView && <div/> // Prevents NoResults from showing before section is in view
+              !isInView && <div /> // Prevents NoResults from showing before section is in view
             )}
           </AnimatePresence>
           {/* Add a spacer at the end for better scrolling UX */}
@@ -283,7 +293,7 @@ const ExplorePage = () => {
       setFeaturedRecipe({
         title: randomRecipe.name,
         description: randomRecipe.about,
-        imageUrl: randomRecipe.image,
+        imageUrl: randomRecipe.images,
         category: randomRecipe.category,
         slug: randomRecipe.id,
       });
@@ -303,31 +313,31 @@ const ExplorePage = () => {
         }));
 
     return [
-      { 
-        title: "Vegetarian Delights", 
-        data: mapRecipes("veg"), 
-        Icon: GiKnifeFork, 
+      {
+        title: "Vegetarian Delights",
+        data: mapRecipes("veg"),
+        Icon: GiKnifeFork,
         accent: "from-emerald-500 to-green-600",
         scrollbar: "scrollbar-green" // ✨ NEW: Added themed scrollbars
       },
-      { 
-        title: "Hearty Non-Vegetarian", 
-        data: mapRecipes("nonveg"), 
-        Icon: GiRoastChicken, 
+      {
+        title: "Hearty Non-Vegetarian",
+        data: mapRecipes("nonveg"),
+        Icon: GiRoastChicken,
         accent: "from-rose-500 to-red-600",
         scrollbar: "scrollbar-red"
       },
-      { 
-        title: "Sweet Desserts", 
-        data: mapRecipes("dessert"), 
-        Icon: GiCakeSlice, 
+      {
+        title: "Sweet Desserts",
+        data: mapRecipes("dessert"),
+        Icon: GiCakeSlice,
         accent: "from-amber-500 to-orange-600",
         scrollbar: "scrollbar-orange"
       },
-      { 
-        title: "Cool Beverages", 
-        data: mapRecipes("beverages"), 
-        Icon: GiMartini, 
+      {
+        title: "Cool Beverages",
+        data: mapRecipes("beverages"),
+        Icon: GiMartini,
         accent: "from-sky-500 to-indigo-600",
         scrollbar: "scrollbar-blue"
       },
@@ -345,7 +355,7 @@ const ExplorePage = () => {
         <div className="absolute top-1/2 right-1/3 w-48 h-48 bg-cyan-300 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-6000 dark:opacity-30"></div>
         <div className="absolute bottom-1/3 right-10 w-64 h-64 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-blob animation-delay-8000 dark:opacity-35"></div>
       </div>
-      
+
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Header */}
         <motion.div
@@ -380,13 +390,13 @@ const ExplorePage = () => {
               <HiSparkles className="w-6 h-6" />
             </motion.div>
           </motion.div>
-          
+
           <motion.p variants={itemVariants} className="text-lg text-slate-600 dark:text-slate-300 mt-4 max-w-2xl mx-auto">
             Find your next favorite meal. Search our curated collections and start cooking today.
           </motion.p>
-          
+
           {/* ✨ NEW: Added quick stats */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className="flex justify-center gap-8 mt-8 text-sm font-medium"
           >

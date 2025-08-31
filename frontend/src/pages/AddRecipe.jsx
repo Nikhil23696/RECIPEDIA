@@ -425,14 +425,12 @@ const RecipeCard = ({ recipe, currentUser, onEdit, onDelete, onLike, onAddCommen
   return (
     <div className="recipe-card">
       {recipe.image && (
-        <><picture>
-
-        </picture><img
+        <img
             src={recipe.image}
             alt={recipe.title}
             onError={(e) => {
               e.target.style.display = 'none';
-            } } /></>
+            } } />
       )}
       <div className="recipe-info">
         <h3>{recipe.title}</h3>
