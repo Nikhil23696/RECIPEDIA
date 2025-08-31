@@ -147,7 +147,7 @@ const RecipeListPage = ({ category }) => {
                   recipe={{
                     title: recipe.name,
                     description: recipe.about,
-                    imageUrl: recipe.image,
+                    images: recipe.images,
                     category: recipe.category,
                     slug: recipe.id,
                   }}

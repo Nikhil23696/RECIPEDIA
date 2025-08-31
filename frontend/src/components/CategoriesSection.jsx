@@ -2,33 +2,33 @@ import React, { useState } from 'react';
 import { ArrowRight, Sparkles, TrendingUp } from 'lucide-react';
 
 const categories = [
-  { 
-    name: 'Vegetarian', 
-    image: '/veg.jpg', 
+  {
+    name: 'Vegetarian',
+    image: '/veg.jpg',
     href: '/veg',
     gradient: 'from-green-500 to-emerald-600',
     recipes: '2.5K+',
     description: 'Fresh & healthy plant-based delights'
   },
-  { 
-    name: 'Non-Vegetarian', 
-    image: '/nonveg.jpg', 
+  {
+    name: 'Non-Vegetarian',
+    image: '/nonveg.jpg',
     href: '/nonveg',
     gradient: 'from-red-500 to-rose-600',
     recipes: '3.2K+',
     description: 'Rich protein-packed culinary adventures'
   },
-  { 
-    name: 'Desserts', 
-    image: '/dessert.jpg', 
+  {
+    name: 'Desserts',
+    image: '/dessert.jpg',
     href: '/dessert',
     gradient: 'from-pink-500 to-purple-600',
     recipes: '1.8K+',
     description: 'Sweet indulgences for every occasion'
   },
-  { 
-    name: 'Beverages', 
-    image: '/beverages.jpg', 
+  {
+    name: 'Beverages',
+    image: '/beverages.jpg',
     href: '/beverages',
     gradient: 'from-blue-500 to-cyan-600',
     recipes: '900+',
@@ -40,7 +40,7 @@ const CategoryCard = ({ category, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div 
+    <div
       className="group relative overflow-hidden rounded-2xl bg-slate-900 shadow-lg hover:shadow-2xl transform hover:-translate-y-3 hover:rotate-[1deg] hover:scale-[1.01] transition-all duration-500 border border-slate-700 hover:ring-4 hover:ring-slate-300/40"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -48,13 +48,24 @@ const CategoryCard = ({ category, index }) => {
     >
       {/* Background Image with Overlay */}
       <div className="relative h-48 overflow-hidden">
-        <img 
-          src={category.image} 
-          alt={category.name} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.15]" 
+        <picture>
+          <source
+            srcSet={`/optimized/${category.image.split('.')[0]}.avif`}
+            type="image/avif"
+          />
+          <source
+            srcSet={`/optimized/${category.image.split('.')[0]}.webp`}
+            type="image/webp"
+          />
+          <img
+          src={category.image}
+          alt={category.name}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.15]"
+          loading='lazy'
         />
+        </picture>
         <div className={`absolute inset-0 bg-gradient-to-t ${category.gradient} opacity-60 group-hover:opacity-40 transition-opacity duration-500 dark:opacity-70`} />
-        
+
         {/* Floating Elements */}
         <div className="absolute top-4 right-4">
           <div className={`bg-white/20 dark:bg-black/30 backdrop-blur-sm rounded-full p-2 ${isHovered ? 'animate-bounce' : ''}`}>
@@ -87,8 +98,8 @@ const CategoryCard = ({ category, index }) => {
               <span>Trending recipes</span>
             </div>
           </div>
-          
-          <a 
+
+          <a
             href={category.href}
             className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r ${category.gradient} text-white shadow-lg group-hover:shadow-xl transform group-hover:scale-110 transition-all duration-300`}
           >
@@ -98,8 +109,8 @@ const CategoryCard = ({ category, index }) => {
       </div>
 
       {/* Animated Border */}
-      <div className={`absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10`} 
-           style={{ padding: '2px' }}>
+      <div className={`absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10`}
+        style={{ padding: '2px' }}>
         <div className="w-full h-full rounded-2xl bg-slate-900" />
       </div>
 
@@ -128,14 +139,14 @@ const CategoriesSection = () => {
             <Sparkles className="w-4 h-4 mr-2 text-red-500 animate-spin" style={{ animationDuration: '3s' }} />
             <span className="text-sm font-semibold text-red-600 dark:text-red-400">Explore Categories</span>
           </div>
-          
+
           <h2 data-aos="fade-up" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-800 dark:text-white mb-6">
             Browse by{' '}
             <span data-aos="fade-up" className="bg-gradient-to-r from-red-500 to-pink-600 bg-clip-text text-transparent">
               Category
             </span>
           </h2>
-          
+
           <p data-aos="fade-up" className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Discover your next favorite dish from our carefully curated categories, each packed with authentic recipes from around the world.
           </p>

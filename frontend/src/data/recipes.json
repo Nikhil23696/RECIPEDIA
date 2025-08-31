@@ -3,7 +3,11 @@
     "id": "paneer-butter-masala",
     "name": "Paneer Butter Masala",
     "category": "veg",
-    "image": "/paneer.jpg",
+    "images": {
+       "avif": "/optimized/paneer.avif",
+       "webp": "/optimized/paneer.webp",
+       "jpg": "/paneer.jpg"
+    },
     "about": "A rich and creamy North Indian curry made with paneer (cottage cheese) in a tomato-based gravy with aromatic spices.",
     "ingredients": [
       "500g Paneer, cubed",
@@ -28,7 +32,11 @@
     "id": "vegetable-biryani",
     "name": "Vegetable Biryani",
     "category": "veg",
-    "image": "/vegbiriyani.jpg",
+    "images": {
+       "avif": "/optimized/vegbiriyani.avif",
+       "webp": "/optimized/vegbiriyani.webp",
+       "jpg": "/vegbiriyani.jpg"
+    },
     "about": "A fragrant and flavorful rice dish made with aromatic spices, basmati rice, and a mix of fresh vegetables.",
     "ingredients": [
       "2 cups Basmati rice",
@@ -59,7 +67,11 @@
     "id": "dal-makhani",
     "name": "Dal Makhani",
     "category": "veg",
-    "image": "/dal.jpg",
+    "images": {
+       "avif": "/optimized/dal.avif",
+       "webp": "/optimized/dal.webp",
+       "jpg": "/dal.jpg"
+    },
     "about": "A rich and creamy North Indian lentil dish made with black lentils (urad dal) and kidney beans (rajma) slow-cooked with butter, cream, and aromatic spices.",
     "ingredients": [
       "1 cup Black lentils (Urad dal)",
@@ -85,7 +97,11 @@
     "id": "palak-soup",
     "name": "Palak Soup",
     "category": "veg",
-    "image": "/palak.jpg",
+    "images": {
+       "avif": "/optimized/palak.avif",
+       "webp": "/optimized/palak.webp",
+       "jpg": "/palak.jpg"
+    },
     "about": "A nutritious and flavorful soup made with fresh spinach (palak), blended with spices and cream for a smooth texture.",
     "ingredients": [
       "2 cups Fresh spinach, chopped",
@@ -111,7 +127,11 @@
     "id": "rajma-chawal",
     "name": "Rajma Chawal",
     "category": "veg",
-    "image": "/rajma.jpg",
+    "images": {
+       "avif": "/optimized/rajmaChawal.avif",
+       "webp": "/optimized/rajmaChawal.webp",
+       "jpg": "/rajmaChawal.jpg"
+    },
     "about": "A comforting North Indian dish made with red kidney beans cooked in a spiced tomato-onion gravy, served with steamed rice.",
     "ingredients": [
       "1 cup Rajma (red kidney beans), soaked overnight",
@@ -144,7 +164,10 @@
     "id": "chole-bhature",
     "name": "Chole Bhature",
     "category": "veg",
-    "image": "/chole-bhature.jpg",
+   "images": {
+       "avif": "/optimized/choleBhature.avif",
+       "webp": "/optimized/choleBhature.webp"
+    },
     "about": "A popular North Indian dish consisting of spicy chickpea curry (chole) served with deep-fried, fluffy bread (bhature).",
     "ingredients": [
       "1 cup Chickpeas (chole), soaked overnight",
@@ -186,7 +209,11 @@
     "id": "masala-dosa",
     "name": "Masala Dosa",
     "category": "veg",
-    "image": "/masala-dosa.jpg",
+    "images": {
+       "avif": "/optimized/masalaDosa.avif",
+       "webp": "/optimized/masalaDosa.webp",
+       "jpg": "/masalaDosa.jpg"
+    },
     "about": "A crispy South Indian crepe made from fermented rice and lentil batter, stuffed with a spiced potato filling and served with chutneys and sambar.",
     "ingredients": [
       "2 cups Dosa rice",
@@ -224,7 +251,11 @@
     "id": "pav-bhaji",
     "name": "Pav Bhaji",
     "category": "veg",
-    "image": "/pav-bhaji.jpg",
+    "images": {
+       "avif": "/optimized/pavBhaji.avif",
+       "webp": "/optimized/pavBhaji.webp",
+       "jpg": "/pavBhaji.jpg"
+    },
     "about": "A popular Mumbai street food consisting of a spicy vegetable mash served with butter-toasted bread rolls.",
     "ingredients": [
       "4 Pav bread rolls",
@@ -260,7 +291,11 @@
     "id": "dhokla",
     "name": "Dhokla",
     "category": "veg",
-    "image": "/dhokla.jpg",
+    "images": {
+       "avif": "/optimized/dhokla.avif",
+       "webp": "/optimized/dhokla.webp",
+       "jpg": "/dhokla.jpg"
+    },
     "about": "A soft, spongy steamed snack from Gujarat made with fermented gram flour batter, seasoned with mustard seeds and green chilies.",
     "ingredients": [
       "1 cup Gram flour (besan)",
@@ -293,7 +328,11 @@
     "id": "veg-momos",
     "name": "Veg Momo",
     "category": "veg",
-    "image": "/momos.jpg",
+    "images": {
+       "avif": "/optimized/momos.avif",
+       "webp": "/optimized/momos.webp",
+       "jpg": "/momos.jpg"
+    },
     "about": "Soft dumplings stuffed with finely chopped vegetables, a popular street food in India with origins in Tibet and Nepal.",
     "ingredients": [
       "1 cup All-purpose flour (maida)",
@@ -327,7 +366,11 @@
     "id": "butter-chicken",
     "name": "Butter Chicken",
     "category": "nonveg",
-    "image": "/chicken.jpg",
+    "images": {
+       "avif": "/optimized/chicken.avif",
+       "webp": "/optimized/chicken.webp",
+       "jpg": "/chicken.jpg"
+    },
     "about": "A rich and creamy North Indian dish made with tender chicken cooked in a spiced tomato-butter sauce.",
     "ingredients": [
       "500g Chicken, boneless and cut into pieces",
@@ -357,7 +400,11 @@
     "id": "chicken-biryani",
     "name": "Chicken Biryani",
     "category": "nonveg",
-    "image": "/chickenBiryani.jpg",
+    "images": {
+       "avif": "/optimized/chickenBiryani.avif",
+       "webp": "/optimized/chickenBiryani.webp",
+       "jpg": "/chickenBiryani.jpg"
+    },
     "about": "A delicious and aromatic rice dish made with marinated chicken, basmati rice, and a blend of fragrant spices.",
     "ingredients": [
       "2 cups Basmati rice",
@@ -389,7 +436,11 @@
     "id": "mutton-rogan-josh",
     "name": "Mutton Rogan Josh",
     "category": "nonveg",
-    "image": "/muttonRoganJosh.jpg",
+    "images": {
+       "avif": "/optimized/muttonRoganJosh.avif",
+       "webp": "/optimized/muttonRoganJosh.webp",
+       "jpg": "/muttonRoganJosh.jpg"
+    },
     "about": "A rich and aromatic Kashmiri delicacy made with tender mutton pieces slow-cooked in a blend of flavorful spices and yogurt.",
     "ingredients": [
       "500g Mutton (goat/lamb), cut into medium pieces",
@@ -424,7 +475,10 @@
     "id": "tandoori-chicken",
     "name": "Tandoori Chicken",
     "category": "nonveg",
-    "image": "/tandooriChicken.webp",
+    "images": {
+       "avif": "/optimized/tandooriChicken.avif",
+       "webp": "/optimized/tandooriChicken.webp"
+    },
     "about": "A classic North Indian dish where chicken is marinated in yogurt and aromatic spices, then roasted to perfection for a smoky, charred flavor.",
     "ingredients": [
       "500g Chicken (with bone, preferably leg and thigh pieces)",
@@ -455,7 +509,11 @@
     "id": "fish-curry",
     "name": "Fish Curry",
     "category": "nonveg",
-    "image": "/fish.jpg",
+    "images": {
+       "avif": "/optimized/fish.avif",
+       "webp": "/optimized/fish.webp",
+       "jpg": "/fish.jpg"
+    },
     "about": "A delicious and aromatic Indian fish curry made with tender fish pieces simmered in a spiced coconut or tomato-based gravy.",
     "ingredients": [
       "500g Fish (Pomfret, Kingfish, or any firm fish), cut into pieces",
@@ -490,7 +548,11 @@
     "id": "prawn-masala",
     "name": "Prawn Masala",
     "category": "nonveg",
-    "image": "/prawn.jpg",
+    "images": {
+       "avif": "/optimized/prawn.avif",
+       "webp": "/optimized/prawn.webp",
+       "jpg": "/prawn.jpg"
+    },
     "about": "A spicy and flavorful Indian dish made with prawns cooked in a rich tomato-based masala with aromatic spices.",
     "ingredients": [
       "500g Prawns, cleaned and deveined",
@@ -521,7 +583,11 @@
     "id": "egg-curry",
     "name": "Egg Curry",
     "category": "nonveg",
-    "image": "/eggCurry.jpg",
+   "images": {
+       "avif": "/optimized/eggCurry.avif",
+       "webp": "/optimized/eggCurry.webp",
+       "jpg": "/eggCurry.jpg"
+    },
     "about": "A comforting and flavorful dish made with boiled eggs simmered in a rich, spiced onion-tomato gravy, perfect with rice or roti.",
     "ingredients": [
       "6 boiled eggs",
@@ -556,7 +622,10 @@
     "id": "keema-pav",
     "name": "Keema Pav",
     "category": "nonveg",
-    "image": "/keemaPav.webp",
+    "images": {
+       "avif": "/optimized/KeemaPav.avif",
+       "webp": "/optimized/KeemaPav.webp"
+    },
     "about": "A popular Mumbai street food made with spicy minced meat curry served with buttery pav buns, perfect for a hearty meal.",
     "ingredients": [
       "500g minced mutton or chicken",
@@ -595,7 +664,10 @@
     "id": "grilled-salmon",
     "name": "Grilled Salmon",
     "category": "nonveg",
-    "image": "/grilledSalmon.webp",
+    "images": {
+       "avif": "/optimized/grilledSalmon.avif",
+       "webp": "/optimized/grilledSalmon.webp"
+    },
     "about": "A healthy and flavorful dish where fresh salmon fillets are marinated with herbs and spices, then grilled to perfection for a smoky, tender finish.",
     "ingredients": [
       "4 Salmon fillets (about 150g each)",
@@ -623,7 +695,11 @@
     "id": "chicken-shawarma",
     "name": "Chicken Shawarma",
     "category": "nonveg",
-    "image": "/chickenShawarna.jpg",
+    "images": {
+       "avif": "/optimized/chickenShawarna.avif",
+       "webp": "/optimized/chickenShawarna.webp",
+       "jpg": "/chickenShawarna.jpg"
+    },
     "about": "A Middle Eastern street food favorite where marinated chicken is grilled or roasted, then served with pita bread, fresh veggies, and creamy sauces.",
     "ingredients": [
       "500g Boneless chicken thighs or breasts",
@@ -657,7 +733,11 @@
     "id": "gulab-jamun",
     "name": "Gulab Jamun",
     "category": "dessert",
-    "image": "/jamun.jpg",
+   "images": {
+       "avif": "/optimized/jamun.avif",
+       "webp": "/optimized/jamun.webp",
+       "jpg": "/jamun.jpg"
+    },
     "about": "A classic Indian dessert made from deep-fried milk-based dumplings soaked in a fragrant sugar syrup.",
     "ingredients": [
       "1 cup Milk powder",
@@ -688,7 +768,11 @@
     "id": "rasgulla",
     "name": "Rasgulla",
     "category": "dessert",
-    "image": "/rasgulla.jpg",
+    "images": {
+       "avif": "/optimized/rasgulla.avif",
+       "webp": "/optimized/rasgulla.webp",
+       "jpg": "/rasgulla.jpg"
+    },
     "about": "A soft and spongy Bengali dessert made from chhena (Indian cottage cheese) balls cooked in a light sugar syrup.",
     "ingredients": [
       "For the Chhena (Paneer):",
@@ -718,7 +802,11 @@
     "id": "jalebi",
     "name": "Jalebi",
     "category": "dessert",
-    "image": "/jalebi.jpg",
+   "images": {
+       "avif": "/optimized/jalebi.avif",
+       "webp": "/optimized/jalebi.webp",
+       "jpg": "/jalebi.jpg"
+    },
     "about": "A crispy, deep-fried Indian dessert soaked in sugar syrup, known for its spiral shape and sweet, tangy flavor.",
     "ingredients": [
       "For the Jalebi Batter:",
@@ -749,7 +837,11 @@
     "id": "falooda",
     "name": "Falooda",
     "category": "dessert",
-    "image": "/falooda.jpg",
+    "images": {
+       "avif": "/optimized/falooda.avif",
+       "webp": "/optimized/falooda.webp",
+       "jpg": "/falooda.jpg"
+    },
     "about": "A rich and refreshing Indian dessert drink made with milk, basil seeds, falooda sev, rose syrup, and ice cream.",
     "ingredients": [
       "2 cups Chilled milk",
@@ -776,7 +868,11 @@
     "id": "kheer",
     "name": "Kheer",
     "category": "dessert",
-    "image": "/kheer.webp",
+    "images": {
+       "avif": "/optimized/kheer.avif",
+       "webp": "/optimized/kheer.webp",
+       "jpg": "/kheer.jpg"
+    },
     "about": "A traditional Indian rice pudding made with milk, rice, and sugar, flavored with cardamom and garnished with nuts and dried fruits.",
     "ingredients": [
       "1/4 cup Basmati rice",
@@ -804,7 +900,10 @@
     "id": "ladoo",
     "name": "Ladoo",
     "category": "dessert",
-    "image": "/laddo.webp",
+    "images": {
+       "avif": "/optimized/laddo.avif",
+       "webp": "/optimized/laddo.webp"
+    },
     "about": "A popular Indian sweet made from flour, ghee, and sugar, often flavored with cardamom and garnished with nuts.",
     "ingredients": [
       "2 cups Besan (gram flour)",
@@ -830,7 +929,11 @@
     "id": "barfi",
     "name": "Barfi",
     "category": "dessert",
-    "image": "/barfi.jpg",
+    "images": {
+       "avif": "/optimized/barfi.avif",
+       "webp": "/optimized/barfi.webp",
+       "jpg": "/barfi.jpg"
+    },
     "about": "A rich and creamy Indian sweet made with milk solids, sugar, and flavored with cardamom, often garnished with nuts or silver leaf.",
     "ingredients": [
       "2 cups Khoya (mawa)",
@@ -856,7 +959,10 @@
     "id": "kulfi",
     "name": "Kulfi",
     "category": "dessert",
-    "image": "/kulfi.webp",
+    "images": {
+       "avif": "/optimized/kulfi.avif",
+       "webp": "/optimized/kulfi.webp"
+    },
     "about": "A traditional Indian frozen dessert made with thickened milk, flavored with cardamom, saffron, and nuts for a rich and creamy taste.",
     "ingredients": [
       "1 liter Full cream milk",
@@ -880,7 +986,11 @@
     "id": "chocolate-cake",
     "name": "Chocolate Cake",
     "category": "dessert",
-    "image": "/chocolateCake.jpg",
+    "images": {
+       "avif": "/optimized/chocolateCake.avif",
+       "webp": "/optimized/chocolateCake.webp",
+       "jpg": "/chocolateCake.jpg"
+    },
     "about": "A rich and moist chocolate cake made with cocoa powder, layered with creamy chocolate frosting for a decadent dessert.",
     "ingredients": [
       "1 and 1/2 cups All-purpose flour (maida)",
@@ -907,7 +1017,11 @@
     "id": "peda",
     "name": "Peda",
     "category": "dessert",
-    "image": "/peda.jpg",
+    "images": {
+       "avif": "/optimized/peda.avif",
+       "webp": "/optimized/peda.webp",
+       "jpg": "/peda.jpg"
+    },
     "about": "A soft and sweet Indian milk-based dessert made with khoya, sugar, and flavored with cardamom, often garnished with nuts.",
     "ingredients": [
       "1 cup Khoya (mawa)",
@@ -931,7 +1045,11 @@
     "id": "fruit-custard",
     "name": "Fruit Custard",
     "category": "dessert",
-    "image": "/fruitCustard.webp",
+    "images": {
+       "avif": "/optimized/fruitCustard.avif",
+       "webp": "/optimized/fruitCustard.webp",
+       "jpg": "/fruitCustard.jpg"
+    },
     "about": "A creamy dessert made with custard and a variety of fresh fruits, served chilled for a refreshing treat.",
     "ingredients": [
       "2 cups Milk",
@@ -958,7 +1076,11 @@
     "id": "masala-chai",
     "name": "Masala Chai",
     "category": "beverages",
-    "image": "/chai.jpg",
+   "images": {
+       "avif": "/optimized/chai.avif",
+       "webp": "/optimized/chai.webp",
+       "jpg": "/chai.jpg"
+    },
     "about": "A fragrant and spiced Indian tea made by brewing black tea leaves with aromatic spices, milk, and sugar.",
     "ingredients": [
       "2 cups Water",
@@ -984,7 +1106,11 @@
     "id": "lassi",
     "name": "Lassi (Sweet & Salty)",
     "category": "beverages",
-    "image": "/lassi.jpg",
+    "images": {
+       "avif": "/optimized/lassi.avif",
+       "webp": "/optimized/lassi.webp",
+       "jpg": "/lassi.jpg"
+    },
     "about": "A refreshing and creamy yogurt-based Indian drink, available in both sweet and salty variations.",
     "ingredients": [
       "2 cups Yogurt (curd)",
@@ -1013,7 +1139,11 @@
     "id": "coffee",
     "name": "Filter Coffee",
     "category": "beverages",
-    "image": "/coffee.jpg",
+    "images": {
+       "avif": "/optimized/coffee.avif",
+       "webp": "/optimized/coffee.webp",
+       "jpg": "/coffee.jpg"
+    },
     "about": "A rich and aromatic South Indian coffee made using a traditional filter, blended with frothy milk for a smooth and bold taste.",
     "ingredients": [
       "2 tbsp Ground coffee powder (South Indian filter coffee blend)",
@@ -1034,7 +1164,11 @@
     "id": "thandai",
     "name": "Thandai",
     "category": "beverages",
-    "image": "/thandai.jpg",
+    "images": {
+       "avif": "/optimized/thandai.avif",
+       "webp": "/optimized/thandai.webp",
+       "jpg": "/thandai.jpg"
+    },
     "about": "A refreshing and aromatic Indian beverage made with milk, nuts, and a blend of spices, traditionally enjoyed during festivals like Holi and Mahashivratri.",
     "ingredients": [
       "2 cups Milk",
@@ -1064,7 +1198,11 @@
     "id": "cold-coffee",
     "name": "Cold Coffee",
     "category": "beverages",
-    "image": "/cold-coffee.jpg",
+    "images": {
+       "avif": "/optimized/coldCoffee.avif",
+       "webp": "/optimized/coldCoffee.webp",
+       "jpg": "/coldCoffee.jpg"
+    },
     "about": "A chilled, frothy blend of coffee, milk, and sugar, perfect for a refreshing caffeine boost on a hot day.",
     "ingredients": [
       "2 cups Cold milk",
@@ -1087,7 +1225,11 @@
     "id": "nimbu-pani",
     "name": "Nimbu Pani",
     "category": "beverages",
-    "image": "/nimbuPani.jpg",
+    "images": {
+       "avif": "/optimized/nimbuPani.avif",
+       "webp": "/optimized/nimbuPani.webp",
+       "jpg": "/nimbuPani.jpg"
+    },
     "about": "A refreshing Indian lemonade made with fresh lemon juice, water, sugar, and a hint of salt for a perfect summer drink.",
     "ingredients": [
       "2 Lemons",
@@ -1110,7 +1252,11 @@
     "id": "mango-shake",
     "name": "Mango Shake",
     "category": "beverages",
-    "image": "/mangoShake.jpg",
+    "images": {
+       "avif": "/optimized/mangoShake.avif",
+       "webp": "/optimized/mangoShake.webp",
+       "jpg": "/mangoShake.jpg"
+    },
     "about": "A rich and creamy summer drink made with fresh ripe mangoes, milk, and sugar — perfect for a refreshing treat.",
     "ingredients": [
       "2 Ripe mangoes (peeled and chopped)",
@@ -1132,7 +1278,10 @@
     "id": "hot-chocolate",
     "name": "Hot Chocolate",
     "category": "beverages",
-    "image": "/hotChocolate.webp",
+    "images": {
+       "avif": "/optimized/hotChocolate.avif",
+       "webp": "/optimized/hotChocolate.webp"
+    },
     "about": "A rich, velvety drink made with cocoa, milk, and sugar — perfect for cozy evenings.",
     "ingredients": [
       "2 cups Milk",
@@ -1154,7 +1303,11 @@
     "id": "green-tea",
     "name": "Green Tea",
     "category": "beverages",
-    "image": "/greenTea.avif",
+    "images": {
+       "avif": "/optimized/greenTea.avif",
+       "webp": "/optimized/greenTea.webp",
+       "jpg": "/greenTea.jpg"
+    },
     "about": "A soothing and healthy drink made by steeping green tea leaves, rich in antioxidants.",
     "ingredients": [
       "1 cup Water",
@@ -1173,7 +1326,11 @@
     "id": "rose-milk",
     "name": "Rose Milk",
     "category": "beverages",
-    "image": "/roseMilk.jpg",
+    "images": {
+       "avif": "/optimized/roseMilk.avif",
+       "webp": "/optimized/roseMilk.webp",
+       "jpg": "/roseMilk.jpg"
+    },
     "about": "A fragrant, sweet drink made with chilled milk and rose syrup, perfect for summer.",
     "ingredients": ["2 cups Chilled milk", "3 tbsp Rose syrup", "Ice cubes"],
     "preparationSteps": [
@@ -1186,7 +1343,11 @@
     "id": "coconut-water",
     "name": "Coconut Water",
     "category": "beverages",
-    "image": "/coconutWater.jpg",
+    "images": {
+       "avif": "/optimized/coconutWater.avif",
+       "webp": "/optimized/coconutWater.webp",
+       "jpg": "/coconutWater.jpg"
+    },
     "about": "A naturally refreshing drink from tender coconuts, rich in electrolytes and nutrients.",
     "ingredients": ["1 Fresh tender coconut"],
     "preparationSteps": [

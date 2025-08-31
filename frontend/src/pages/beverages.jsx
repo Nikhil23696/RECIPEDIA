@@ -69,14 +69,19 @@ const Beverages = () => {
               }
               className="bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-2xl overflow-hidden transform hover:-translate-y-1 transition cursor-pointer"
             >
-              <img
-                src={recipe.image}
-                alt={recipe.name || "Beverage Recipe"}
-                onError={(e) => {
-                  e.target.src = "/default2.jpg";
-                }}
-                className="h-48 w-full object-cover"
-              />
+              <picture>
+                <source srcSet={`/optimized/${recipe.image.split('.')[0]}.avif`} type="image/avif" />
+                <source srcSet={`/optimized/${recipe.image.split('.')[0]}.webp`} type="image/webp" />
+                <img
+                  src={recipe.image}
+                  alt={recipe.name || "Beverage Recipe"}
+                  onError={(e) => {
+                    e.target.src = "/default2.jpg";
+                  }}
+                  className="h-48 w-full object-cover"
+                  loading="lazy"
+                />
+              </picture>
               <div className="p-4">
                 <h3 className="font-semibold text-lg text-gray-800 dark:text-white text-center">
                   {recipe.name}

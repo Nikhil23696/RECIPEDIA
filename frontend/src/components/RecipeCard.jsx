@@ -20,11 +20,20 @@ const RecipeCard = ({ recipe, accent, onClick }) => (
     <div className={`absolute inset-0 rounded-2xl ${accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg`} />
     <div className="relative w-full h-full bg-white/40 dark:bg-slate-800/40 backdrop-blur-lg rounded-2xl overflow-hidden border border-white/20 dark:border-slate-700/50 shadow-xl group-hover:shadow-2xl transition-shadow duration-300 flex flex-col">
       <div className="w-full h-1/2 overflow-hidden">
-        <img
-          src={recipe.imageUrl}
-          alt={recipe.title}
-          className="w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-        />
+       <picture>
+            {recipe.images?.avif && (
+              <source srcSet={recipe.images.avif} type="image/avif" />
+            )}
+            {recipe.images?.webp && (
+              <source srcSet={recipe.images.webp} type="image/webp" />
+            )}
+            <img
+              src={recipe.images?.jpg || recipe.images?.webp || recipe.images?.avif}
+              alt={recipe.title}
+              className="w-full h-40 object-cover rounded"
+              loading="lazy"
+            />
+          </picture>
       </div>
       <div className="p-5 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2 truncate">{recipe.title}</h3>

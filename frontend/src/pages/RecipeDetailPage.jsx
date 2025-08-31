@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { FaArrowLeft, FaHeart, FaRegHeart } from 'react-icons/fa';
+import { FaArrowLeft, FaHeart, FaPlay, FaRegHeart } from 'react-icons/fa';
 import allRecipes from '../data/recipes.json';
 import NotFoundPage from './NotFound.jsx';
 import '../styles/RecipeDetail.css';
@@ -9,6 +9,8 @@ import AudioOverview from '../components/AudioOverview.jsx';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
+import { IoMdSettings } from 'react-icons/io';
+import { IoPlaySkipBackSharp, IoPlaySkipForwardSharp } from 'react-icons/io5';
 
 const RecipeDetailPage = () => {
   const { category, recipeId } = useParams();
@@ -69,6 +71,11 @@ const [value, setValue] = React.useState(3);
   }, []);
 
   const handleLike = () => setLiked(!liked);
+  const handleSpeed = () => {}
+  const handleSkipBack = () => {}
+  const handlePlay = () => {}
+  const handleSkipForward = () => {}
+  const handleSeekRelease = () => {}
 
   const handleComment = (e) => {
     e.preventDefault();
@@ -104,12 +111,20 @@ const [value, setValue] = React.useState(3);
       </h1>
 
       {/* Image */}
-      <img
-        src={recipe.image}
-        onError={(e) => (e.target.src = '/default.jpg')}
-        alt={recipe.name}
-        className="w-full h-80 object-cover rounded-xl shadow-lg mb-8"
-      />
+      <picture>
+            {recipe.images?.avif && (
+              <source srcSet={recipe.images.avif} type="image/avif" />
+            )}
+            {recipe.images?.webp && (
+              <source srcSet={recipe.images.webp} type="image/webp" />
+            )}
+            <img
+              src={recipe.images?.jpg || recipe.images?.webp || recipe.images?.avif}
+              alt={recipe.title}
+              className="w-full h-40 object-cover rounded"
+              loading="lazy"
+            />
+          </picture>
 
     {/* Voice Section */}
     <div className="container bg-slate-400 text-black dark:text-white dark:bg-gray-500 mx-auto w-1/2 my-10 p-4 rounded-lg flex-col flex justify-center items-center">

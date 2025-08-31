@@ -28,12 +28,11 @@ const features = [
 const FeatureItem = ({ feature, index, isVisible }) => {
   const [isHovered, setIsHovered] = useState(false);
   const IconComponent = feature.icon;
-  
+
   return (
-    <li 
-      className={`flex items-start space-x-6 p-6 rounded-2xl transition-all duration-700 transform ${
-        isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-      } ${isHovered ? 'bg-white/50 dark:bg-slate-700/50 shadow-lg scale-105' : ''}`}
+    <li
+      className={`flex items-start space-x-6 p-6 rounded-2xl transition-all duration-700 transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+        } ${isHovered ? 'bg-white/50 dark:bg-slate-700/50 shadow-lg scale-105' : ''}`}
       style={{ transitionDelay: `${index * 200}ms` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -43,10 +42,10 @@ const FeatureItem = ({ feature, index, isVisible }) => {
         <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center shadow-lg transform transition-all duration-500 ${isHovered ? 'scale-110 rotate-3' : ''}`}>
           <IconComponent className="w-8 h-8 text-white" />
         </div>
-        
+
         {/* Glow Effect */}
         <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} rounded-2xl blur-xl opacity-0 ${isHovered ? 'opacity-30' : ''} transition-opacity duration-500`} />
-        
+
         {/* Floating Badge */}
         <div className={`absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center transform transition-all duration-300 ${isHovered ? 'scale-100' : 'scale-0'}`}>
           <Star className="w-4 h-4 text-yellow-800 fill-current" />
@@ -63,14 +62,14 @@ const FeatureItem = ({ feature, index, isVisible }) => {
             <span className="text-xs font-semibold text-gray-600 dark:text-gray-300">{feature.stats}</span>
           </div>
         </div>
-        
+
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
           {feature.description}
         </p>
-        
+
         {/* Progress Bar */}
         <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-          <div 
+          <div
             className={`h-full bg-gradient-to-r ${feature.gradient} rounded-full transition-all duration-1000 ${isHovered ? 'w-full' : 'w-0'}`}
           />
         </div>
@@ -102,7 +101,7 @@ const FeaturesSection = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-blue-200 to-cyan-200 rounded-full blur-3xl opacity-20 animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full blur-3xl opacity-15 animate-bounce" style={{ animationDelay: '2s' }} />
-        
+
         {/* Floating Elements */}
         <div className="absolute top-20 left-20 w-4 h-4 bg-blue-400 rounded-full animate-ping" />
         <div className="absolute bottom-32 left-32 w-6 h-6 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
@@ -115,15 +114,20 @@ const FeaturesSection = () => {
           <div className="relative">
             {/* Main Image */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
-              <img 
-                src="/Recipedia.png"
-                alt="Recipedia App Interface" 
-                className="w-full h-auto" 
-              />
-              
+              <picture>
+                <source srcSet='/optimized/Recipedia.avif' type='image/avif' />
+                <source srcSet='/optimized/Recipedia.webp' type='image/webp' />
+                <img
+                  src="/Recipedia.png"
+                  alt="Recipedia App Interface"
+                  className="w-full h-auto"
+                  loading='lazy'
+                />
+              </picture>
+
               {/* Overlay Gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-              
+
               {/* Floating UI Elements */}
               <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg animate-float">
                 <div className="flex items-center gap-2">
@@ -131,7 +135,7 @@ const FeaturesSection = () => {
                   <span className="text-sm font-semibold text-gray-800">Live Updates</span>
                 </div>
               </div>
-              
+
               <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg animate-float" style={{ animationDelay: '1s' }}>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-gray-800">4.9</div>
@@ -156,14 +160,14 @@ const FeaturesSection = () => {
                 <Zap className="w-4 h-4 mr-2 text-purple-500 animate-pulse" />
                 <span className="text-sm font-semibold text-purple-600 dark:text-purple-400">Powerful Features</span>
               </div>
-              
+
               <h2 data-aos="fade-left" className="text-4xl md:text-5xl font-black text-gray-800 dark:text-white leading-tight">
                 All The Tools{' '}
                 <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                   You Need
                 </span>
               </h2>
-              
+
               <p data-aos="fade-left" className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 Experience the power of our comprehensive recipe management platform with cutting-edge features designed for food enthusiasts.
               </p>
@@ -172,9 +176,9 @@ const FeaturesSection = () => {
             {/* Features List */}
             <ul className="space-y-6">
               {features.map((feature, index) => (
-                <FeatureItem 
-                  key={index} 
-                  feature={feature} 
+                <FeatureItem
+                  key={index}
+                  feature={feature}
                   index={index}
                   isVisible={isVisible}
                 />

@@ -103,7 +103,7 @@ const ExplorePage = () => {
         .map((r) => ({
           title: r.name,
           description: r.about,
-          imageUrl: r.image,
+          images: r.images,
           category: r.category,
           slug: r.id,
         }));
