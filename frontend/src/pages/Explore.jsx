@@ -176,7 +176,7 @@ const FeaturedRecipe = ({ recipe, navigate }) => (
         >
           <div className="w-32 h-32 md:w-40 md:h-40 rounded-xl overflow-hidden shadow-lg">
             <img
-              src={recipe?.imageUrl || "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300"}
+              src={recipe?.images|| "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=300"}
               alt={recipe?.title || "Featured Recipe"}
               className="w-full h-full object-cover"
             />
@@ -293,7 +293,7 @@ const ExplorePage = () => {
       setFeaturedRecipe({
         title: randomRecipe.name,
         description: randomRecipe.about,
-        imageUrl: randomRecipe.images,
+        images: randomRecipe.images,
         category: randomRecipe.category,
         slug: randomRecipe.id,
       });
