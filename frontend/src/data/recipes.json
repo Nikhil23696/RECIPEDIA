@@ -132,6 +132,7 @@
        "webp": "/optimized/rajmaChawal.webp",
        "jpg": "/rajmaChawal.jpg"
     },
+
     "about": "A comforting North Indian dish made with red kidney beans cooked in a spiced tomato-onion gravy, served with steamed rice.",
     "ingredients": [
       "1 cup Rajma (red kidney beans), soaked overnight",
@@ -168,6 +169,7 @@
        "avif": "/optimized/choleBhature.avif",
        "webp": "/optimized/choleBhature.webp"
     },
+
     "about": "A popular North Indian dish consisting of spicy chickpea curry (chole) served with deep-fried, fluffy bread (bhature).",
     "ingredients": [
       "1 cup Chickpeas (chole), soaked overnight",
@@ -214,6 +216,7 @@
        "webp": "/optimized/masalaDosa.webp",
        "jpg": "/masalaDosa.jpg"
     },
+
     "about": "A crispy South Indian crepe made from fermented rice and lentil batter, stuffed with a spiced potato filling and served with chutneys and sambar.",
     "ingredients": [
       "2 cups Dosa rice",
