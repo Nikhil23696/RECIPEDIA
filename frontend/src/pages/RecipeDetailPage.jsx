@@ -12,6 +12,8 @@ import StarIcon from '@mui/icons-material/Star'
 import Typography from '@mui/material/Typography';
 import { IoMdSettings } from 'react-icons/io';
 import { IoPlaySkipBackSharp, IoPlaySkipForwardSharp } from 'react-icons/io5';
+import IconButton from '@mui/material/IconButton';
+import { MdDeleteOutline } from "react-icons/md";
 
 // Main accent gradient for titles and important actions
 const accentGradient = "linear-gradient(90deg, #ff4b2b 0%, #ff416c 100%)";
@@ -127,6 +129,10 @@ const RecipeDetailPage = () => {
     setRatingValue(4);
     setError('');
   };
+
+  const handleDeleteComment = (id) => {
+     setComments(comments.filter((c) => c.id !== id))
+  }
 
   if (!recipe) return <NotFoundPage />;
 
@@ -342,7 +348,7 @@ const RecipeDetailPage = () => {
             <div className="w-full space-y-6">
               <AnimatePresence>
                 {visibleComments.length > 0 ? (
-                  visibleComments.map((c) => <CommentCard key={c.id} comment={c} />)
+                  visibleComments.map((c) => <CommentCard key={c.id} comment={c} onDelete={handleDeleteComment}/>)
                 ) : (
                   <motion.div variants={itemVariants} className="text-center py-10 px-6 bg-gray-100 dark:bg-slate-800 rounded-xl">
                     <p className="text-gray-500 dark:text-gray-400">Be the first to share your experience!</p>
@@ -383,27 +389,48 @@ const SectionHeader = ({ title }) => (
   </div>
 );
 
-const CommentCard = ({ comment }) => (
-  <motion.div
-    className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-md ring-1 ring-gray-200/50 dark:ring-slate-700/50"
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, x: -20, transition: { duration: 0.2 } }}
-    transition={{ duration: 0.4 }}
-  >
-    <div className="flex items-start gap-4">
-      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#ff4b2b] to-[#ff416c] rounded-full flex items-center justify-center font-bold text-white text-xl shadow-sm">
-        {comment.user.charAt(0).toUpperCase()}
-      </div>
-      <div className="flex-1">
-        <div className="flex justify-between items-center">
-          <p className="font-bold text-lg text-gray-800 dark:text-gray-100">{comment.user}</p>
-          <Rating name="read-only" value={comment.rating} readOnly size="small" precision={0.5} sx={{ '& .MuiRating-iconFilled': { color: '#ff4b2b' } }} />
+const CommentCard = ({ comment, onDelete }) => {
+  const currentUser = localStorage.getItem('username'); // 👈 current logged-in user
+
+  return (
+    <motion.div className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-md ring-1 ring-gray-200/50 dark:ring-slate-700/50">
+      <div className="flex items-start gap-4">
+        <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#ff4b2b] to-[#ff416c] rounded-full flex items-center justify-center font-bold text-white text-xl shadow-sm">
+          {comment.user.charAt(0).toUpperCase()}
         </div>
-        <p className="text-gray-600 dark:text-gray-300 mt-1">{comment.text}</p>
+
+        <div className="flex-1">
+          <div className="flex justify-between items-center">
+            <p className="font-bold text-lg text-gray-800 dark:text-gray-100">
+              {comment.user}
+            </p>
+            <div className="flex items-center gap-2">
+              <Rating
+                name="read-only"
+                value={comment.rating}
+                readOnly
+                size="small"
+                precision={0.5}
+                sx={{ '& .MuiRating-iconFilled': { color: '#ff4b2b' } }}
+              />
+
+              {/* 👇 Delete button only visible if this comment belongs to current user */}
+              {comment.user === currentUser && (
+                <IconButton onClick={() => onDelete(comment.id)}>
+                  <MdDeleteOutline />
+                </IconButton>
+              )}
+            </div>
+          </div>
+
+          <p className="text-gray-600 dark:text-gray-300 mt-1">
+            {comment.text}
+          </p>
+        </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
+
 
 export default RecipeDetailPage;
