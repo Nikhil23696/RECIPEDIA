@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import AudioOverview from '../components/AudioOverview.jsx';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
+import StarIcon from '@mui/icons-material/Star'
 import Typography from '@mui/material/Typography';
 import { IoMdSettings } from 'react-icons/io';
 import { IoPlaySkipBackSharp, IoPlaySkipForwardSharp } from 'react-icons/io5';
@@ -40,6 +41,22 @@ const heartVariants = {
   hover: { scale: 1.15, transition: { duration: 0.2 } },
 };
 
+const labels = {
+  0.5: 'Useless',
+  1: 'Useless+',
+  1.5: 'Poor',
+  2: 'Poor+',
+  2.5: 'Ok',
+  3: 'Ok+',
+  3.5: 'Good',
+  4: 'Good+',
+  4.5: 'Excellent',
+  5: 'Excellent+',
+};
+
+function getLabelText(value) {
+  return `${value} Star${value !== 1 ? 's' : ''}, ${labels[value]}`;
+}
 
 const RecipeDetailPage = () => {
   const { category, recipeId } = useParams();
@@ -49,7 +66,8 @@ const RecipeDetailPage = () => {
   const [liked, setLiked] = useState(false);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
-  const [ratingValue, setRatingValue] = useState(4);
+  const [value, setValue] = React.useState(2);
+  const [hover, setHover] = React.useState(-1);
   const [error, setError] = useState('');
   const [showAllComments, setShowAllComments] = useState(false);
 
@@ -272,13 +290,46 @@ const RecipeDetailPage = () => {
                 placeholder="How did it turn out? Share your tips!"
                 className="w-full border-2 border-gray-200 dark:border-slate-600 rounded-lg p-4 min-h-[120px] bg-gray-50 dark:bg-slate-700/50 focus:ring-2 focus:ring-[#ff4b2b] transition mb-4" />
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-4 gap-4">
-                <Box>
-                  <Typography component="legend" className='font-semibold text-gray-600 dark:text-gray-300'>Your Rating:</Typography>
-                  <Rating
-                    name="comment-rating" value={ratingValue}
-                    sx={{ '& .MuiRating-iconFilled': { color: '#ff4b2b' } }}
-                    onChange={(_, newValue) => setRatingValue(newValue)} />
+                <Box sx={{ width: 200 }}>
+                  {/* Label above */}
+                  <Typography
+                    component="legend"
+                    className="font-semibold text-gray-600 dark:text-gray-300 mb-1"
+                  >
+                    Your Rating:
+                  </Typography>
+
+                  {/* Stars + Text in same row */}
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Rating
+                      name="hover-rating"
+                      value={value}
+                      sx={{
+                        '& .MuiRating-icon': {
+                          display: 'flex',          // keeps icons aligned
+                          alignItems: 'center',     // vertical centering
+                          height: '30px',           // force consistent height
+                        },
+                        '& .MuiRating-iconFilled': { color: '#ff4b2b' },
+                      }}
+                      precision={0.5}
+                      getLabelText={getLabelText}
+                      onChange={(event, newValue) => {
+                        setValue(newValue);
+                      }}
+                      onChangeActive={(event, newHover) => {
+                        setHover(newHover);
+                      }}
+                      emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                    />
+                    {value !== null && (
+                      <Box sx={{ ml: 1 }}>
+                        {labels[hover !== -1 ? hover : value]}
+                      </Box>
+                    )}
+                  </Box>
                 </Box>
+
                 <motion.button type="submit" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
                   className="bg-gradient-to-r from-[#ff4b2b] to-[#ff416c] text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg">
                   Post Review
