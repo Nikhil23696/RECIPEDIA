@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ArrowRight, Sparkles, TrendingUp } from 'lucide-react';
 
@@ -106,65 +107,29 @@ const CategoryCard = ({ category, index }) => {
   );
 };
 
-const CategoriesSection = () => {
+
+const CTASection = () => {
   return (
-    <section id="categories" className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden">
-      {/* Background Decorations */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-red-200 to-pink-200 rounded-full blur-3xl opacity-30 animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-r from-blue-200 to-cyan-200 rounded-full blur-3xl opacity-20 animate-bounce" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-gradient-to-r from-green-200 to-emerald-200 rounded-full blur-2xl opacity-25 animate-ping" style={{ animationDelay: '2s' }} />
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-red-100 to-pink-100 dark:from-red-900/30 dark:to-pink-900/30 border border-red-200 dark:border-red-800 mb-6">
-            <Sparkles className="w-4 h-4 mr-2 text-red-500 animate-spin" style={{ animationDuration: '3s' }} />
-            <span className="text-sm font-semibold text-red-600 dark:text-red-400">Explore Categories</span>
-          </div>
-
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-800 dark:text-white mb-6">
-            Browse by{' '}
-            <span className="bg-gradient-to-r from-red-500 to-pink-600 bg-clip-text text-transparent">
-              Category
-            </span>
-          </h2>
-
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Discover your next favorite dish from our carefully curated categories, each packed with authentic recipes from around the world.
-          </p>
-        </div>
-
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {categories.map((category, index) => (
-            <CategoryCard key={index} category={category} index={index} />
-          ))}
-        </div>
-
-        {/* Bottom Stats */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-8 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl px-8 py-4 border border-gray-200 dark:border-gray-700">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-gray-800 dark:text-white">8.4K+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Total Recipes</div>
-            </div>
-            <div className="w-px h-8 bg-gray-300 dark:bg-gray-600" />
-            <div className="text-center">
-              <div className="text-2xl font-bold text-gray-800 dark:text-white">2.1K+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Happy Chefs</div>
-            </div>
-            <div className="w-px h-8 bg-gray-300 dark:bg-gray-600" />
-            <div className="text-center">
-              <div className="text-2xl font-bold text-gray-800 dark:text-white">15K+</div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Reviews</div>
-            </div>
-          </div>
-        </div>
+    <section className="bg-red-600">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+        <h2 className="text-3xl font-bold text-white mb-4">
+          Ready to Share Your Culinary Genius?
+        </h2>
+        <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
+          Create your free account today and become part of the Recipedia family. 
+          Your next favorite dish is just a click away.
+        </p>
+        <a 
+          href="/register" 
+          className="bg-white text-red-600 font-bold py-4 px-8 rounded-full text-lg hover:bg-gray-100 transition transform hover:scale-105 shadow-lg"
+        >
+          Sign Up Now
+        </a>
       </div>
     </section>
   );
 };
 
-export default CategoriesSection;
+
+export default CTASection;
+
