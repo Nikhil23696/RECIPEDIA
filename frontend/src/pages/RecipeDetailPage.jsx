@@ -66,7 +66,7 @@ const RecipeDetailPage = () => {
   const [liked, setLiked] = useState(false);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
-  const [value, setValue] = React.useState(2);
+  const [ratingValue, setRatingValue] = useState(5);
   const [hover, setHover] = React.useState(-1);
   const [error, setError] = useState('');
   const [showAllComments, setShowAllComments] = useState(false);
@@ -301,32 +301,32 @@ const RecipeDetailPage = () => {
 
                   {/* Stars + Text in same row */}
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Rating
-                      name="hover-rating"
-                      value={value}
-                      sx={{
-                        '& .MuiRating-icon': {
-                          display: 'flex',          // keeps icons aligned
-                          alignItems: 'center',     // vertical centering
-                          height: '30px',           // force consistent height
-                        },
-                        '& .MuiRating-iconFilled': { color: '#ff4b2b' },
-                      }}
-                      precision={0.5}
-                      getLabelText={getLabelText}
-                      onChange={(event, newValue) => {
-                        setValue(newValue);
-                      }}
-                      onChangeActive={(event, newHover) => {
-                        setHover(newHover);
-                      }}
-                      emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-                    />
-                    {value !== null && (
-                      <Box sx={{ ml: 1 }}>
-                        {labels[hover !== -1 ? hover : value]}
-                      </Box>
-                    )}
+                   <Rating
+                  name="hover-rating"
+                  value={ratingValue}   // 👈 ab yahi use karna hai
+                  precision={0.5}
+                  getLabelText={getLabelText}
+                  onChange={(event, newValue) => {
+                    setRatingValue(newValue);   // 👈 direct update
+                  }}
+                  onChangeActive={(event, newHover) => {
+                    setHover(newHover);
+                  }}
+                  sx={{
+                    '& .MuiRating-icon': {
+                      display: 'flex',
+                      alignItems: 'center',
+                      height: '30px',
+                    },
+                    '& .MuiRating-iconFilled': { color: '#ff4b2b' },
+                  }}
+                  emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                />
+                {ratingValue !== null && (
+                  <Box sx={{ ml: 1 }}>
+                    {labels[hover !== -1 ? hover : ratingValue]}
+                  </Box>
+                )}
                   </Box>
                 </Box>
 
@@ -398,7 +398,7 @@ const CommentCard = ({ comment }) => (
       <div className="flex-1">
         <div className="flex justify-between items-center">
           <p className="font-bold text-lg text-gray-800 dark:text-gray-100">{comment.user}</p>
-          <Rating name="read-only" value={comment.rating} readOnly size="small" sx={{ '& .MuiRating-iconFilled': { color: '#ff4b2b' } }} />
+          <Rating name="read-only" value={comment.rating} readOnly size="small" precision={0.5} sx={{ '& .MuiRating-iconFilled': { color: '#ff4b2b' } }} />
         </div>
         <p className="text-gray-600 dark:text-gray-300 mt-1">{comment.text}</p>
       </div>
