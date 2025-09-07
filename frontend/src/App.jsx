@@ -1,11 +1,9 @@
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import { useState, useEffect, lazy, Suspense } from "react";
 import "./styles/animations.css";
-
 // Axios configuration
 import "./services/axiosConfig.js";
 import { authService } from "./services/authService.js";
-
 // Page Imports
 const RecipeListPage = lazy(() => import("./pages/RecipeListPage.jsx"))
 const RecipeDetailPage = lazy(() => import("./pages/RecipeDetailPage.jsx"))
@@ -17,12 +15,14 @@ const AddRecipe = lazy(() => import("./pages/AddRecipe.jsx"))
 const About = lazy(() => import("./pages/About.jsx"))
 const NotFound = lazy(() => import("./pages/NotFound.jsx"))
 const ErrorPage = lazy(() => import("./pages/ErrorPage.jsx"))
-const Explore = lazy(() => import("./pages/Explore.jsx"))
+const Explore = lazy(() => import("./pages/Explore.jsx"));
+import * as Sentry from "@sentry/react";
 
 // Components
 import Navbar from "./components/Header.jsx"; // header component is named Navbar in the import
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Footer from "./components/Footer.jsx";
+//import CustomizedProgressBars from "./components/Loader.jsx";
 import ScrollReset from "./components/ScrollReset.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy.jsx"))
@@ -32,39 +32,31 @@ const TermsConditions = lazy(() => import("./pages/TermsConditions.jsx"))
 function AppContent() {
   const location = useLocation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   // Determine if current page is an auth page
   const isAuthPage = location.pathname === "/login" || location.pathname === "/register";
-
   // Check authentication status on mount and route changes
   useEffect(() => {
     const checkAuth = () => {
       const authStatus = authService.isAuthenticated();
       setIsAuthenticated(authStatus);
     };
-
     checkAuth();
-
     // Listen for storage changes (in case user logs out in another tab)
     const handleStorageChange = () => {
       checkAuth();
     };
-
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
   }, [location.pathname]);
-
   // Handle logout
   const handleLogout = () => {
     authService.clearAuth();
     setIsAuthenticated(false);
   };
-
   // Handle successful login/register
   const handleAuthSuccess = () => {
     setIsAuthenticated(true);
   };
-
   // Add/remove body classes for auth pages
   useEffect(() => {
     if (isAuthPage) {
@@ -74,13 +66,11 @@ function AppContent() {
       document.body.classList.remove("auth-page");
       document.body.style.overflow = "auto";
     }
-
     return () => {
       document.body.classList.remove("auth-page");
       document.body.style.overflow = "auto";
     };
   }, [isAuthPage]);
-
   return (
     <div className="app-container min-h-screen bg-gray-50 dark:bg-slate-900 transition-colors duration-300">
       <ScrollToTop />
@@ -114,7 +104,7 @@ function AppContent() {
             </div>
           }
         />
-          
+
           {/* Protected/User Routes */}
           <Route path="/profile" element={<PrivateRoute><UserProfile /></PrivateRoute>} />
           <Route path="/settings" element={<PrivateRoute><UserProfile /></PrivateRoute>} /> {/* You can create a separate Settings component */}
@@ -137,14 +127,14 @@ function AppContent() {
           <Route path="/error" element={<ErrorPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Suspense>
 
-      {/* Show Footer only if NOT on auth pages */}
+ {/* Show Footer only if NOT on auth pages */}
       {!isAuthPage && <Footer />}
     </div>
   );
 }
-
+</Suspense>
+    
 // Main App Component: provide the Router here (single source of truth)
 function App() {
   return (
@@ -153,5 +143,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;
