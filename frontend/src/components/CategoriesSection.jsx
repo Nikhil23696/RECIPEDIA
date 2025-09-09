@@ -68,18 +68,18 @@ const CategoryCard = ({ category, index }) => {
 
         {/* Floating Elements */}
         <div className="absolute top-4 right-4">
-          <div className={`bg-white/20 dark:bg-black/30 backdrop-blur-sm rounded-full p-2 ${isHovered ? 'animate-bounce' : ''}`}>
+          <div className={`bg-white/20 backdrop-blur-sm rounded-full p-2 ${isHovered ? 'animate-bounce' : ''}`}>
             <Sparkles className="w-4 h-4 text-white" />
           </div>
         </div>
 
         {/* Recipe Count Badge */}
-        <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/70 backdrop-blur-sm rounded-full px-3 py-1 border border-white/60 dark:border-slate-700">
-          <span className="text-sm font-bold text-gray-800 dark:text-gray-100">{category.recipes}</span>
+        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+          <span className="text-sm font-bold text-gray-800">{category.recipes}</span>
         </div>
 
         {/* Hover Overlay */}
-        <div className={`absolute inset-0 bg-black/20 dark:bg-black/50 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`absolute inset-0 bg-black/20 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
           <div className="absolute bottom-4 left-4 right-4">
             <p className="text-white text-sm opacity-90">{category.description}</p>
           </div>
@@ -87,19 +87,19 @@ const CategoryCard = ({ category, index }) => {
       </div>
 
       {/* Content */}
-      <div className="p-6 relative border-t border-slate-700 bg-slate-900 text-white">
+      <div className="p-6 relative">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-xl font-bold text-white transition-all duration-300">
+            <h3 className="text-xl font-bold text-gray-800 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-gray-800 group-hover:to-gray-600 dark:group-hover:from-white dark:group-hover:to-gray-300 transition-all duration-300">
               {category.name}
             </h3>
-            <div className="flex items-center gap-2 mt-2 text-sm text-gray-200 font-medium">
-              <TrendingUp className="w-4 h-4 text-gray-200" />
+            <div className="flex items-center gap-2 mt-2 text-sm text-gray-500 dark:text-gray-400">
+              <TrendingUp className="w-4 h-4" />
               <span>Trending recipes</span>
             </div>
           </div>
 
-          <a
+          <a 
             href={category.href}
             className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r ${category.gradient} text-white shadow-lg group-hover:shadow-xl transform group-hover:scale-110 transition-all duration-300`}
           >
@@ -142,7 +142,7 @@ const CategoriesSection = () => {
 
           <h2 data-aos="fade-up" className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-800 dark:text-white mb-6">
             Browse by{' '}
-            <span data-aos="fade-up" className="bg-gradient-to-r from-red-500 to-pink-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-500 to-pink-600 bg-clip-text text-transparent">
               Category
             </span>
           </h2>
@@ -153,14 +153,14 @@ const CategoriesSection = () => {
         </div>
 
         {/* Categories Grid */}
-        <div data-aos="fade-up" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {categories.map((category, index) => (
             <CategoryCard key={index} category={category} index={index} />
           ))}
         </div>
 
         {/* Bottom Stats */}
-        <div data-aos="slide-up" className="mt-16 text-center">
+        <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-8 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl px-8 py-4 border border-gray-200 dark:border-gray-700">
             <div className="text-center">
               <div className="text-2xl font-bold text-gray-800 dark:text-white">8.4K+</div>
