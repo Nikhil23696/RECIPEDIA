@@ -15,7 +15,6 @@ import { IoPlaySkipBackSharp, IoPlaySkipForwardSharp } from 'react-icons/io5';
 
 // Main accent gradient for titles and important actions
 const accentGradient = "linear-gradient(90deg, #ff4b2b 0%, #ff416c 100%)";
-
 // --- Framer Motion Variants ---
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -24,7 +23,6 @@ const containerVariants = {
     transition: { staggerChildren: 0.08, delayChildren: 0.2 },
   },
 };
-
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
@@ -33,7 +31,6 @@ const itemVariants = {
     transition: { type: 'spring', stiffness: 100, damping: 15 },
   },
 };
-
 const heartVariants = {
   initial: { scale: 0 },
   animate: { scale: 1, transition: { type: 'spring', stiffness: 200, damping: 10 } },
@@ -61,7 +58,6 @@ function getLabelText(value) {
 const RecipeDetailPage = () => {
   const { category, recipeId } = useParams();
   const navigate = useNavigate();
-
   const [recipe, setRecipe] = useState(null);
   const [liked, setLiked] = useState(false);
   const [comments, setComments] = useState([]);
@@ -70,22 +66,18 @@ const RecipeDetailPage = () => {
   const [hover, setHover] = React.useState(-1);
   const [error, setError] = useState('');
   const [showAllComments, setShowAllComments] = useState(false);
-
   // Speech states
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [speechRate, setSpeechRate] = useState(1);
   const [speechIndex, setSpeechIndex] = useState(0);
   const [spokenChars, setSpokenChars] = useState(0);
-
   const contentPartsRef = useRef([]);
-
   useEffect(() => {
     const found = allRecipes.find(
       (r) => r.id === recipeId && r.category === category
     );
     setRecipe(found);
     setShowAllComments(false); // Reset showAllComments when recipe changes.
-
     if (found) {
       const parts = [
         found.name, "About this Recipe", found.about,
@@ -99,16 +91,13 @@ const RecipeDetailPage = () => {
       setIsSpeaking(false);
     }
   }, [recipeId, category]);
-
   useEffect(() => () => window.speechSynthesis.cancel(), []);
-
   const handleLike = () => setLiked(!liked);
   const handleSpeed = () => { }
   const handleSkipBack = () => { }
   const handlePlay = () => { }
   const handleSkipForward = () => { }
   const handleSeekRelease = () => { }
-
   const handleComment = (e) => {
     e.preventDefault();
     const username = localStorage.getItem('username') || 'Guest';
@@ -127,13 +116,10 @@ const RecipeDetailPage = () => {
     setRatingValue(4);
     setError('');
   };
-
   if (!recipe) return <NotFoundPage />;
-
   // Determine the comments to display
   const visibleComments = showAllComments ? comments : comments.slice(0, 2);
   const showMoreButton = comments.length > 2 && !showAllComments;
-
   return (
     <><motion.div
       className="recipe-detail-page min-h-screen bg-gray-50 dark:bg-slate-900 pt-24"
@@ -223,10 +209,11 @@ const RecipeDetailPage = () => {
             </motion.p>
           </div>
         </div>
-      </div>
-    </motion.div><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        </div>
+      </motion.div>
+      {/* --- Main Content Area --- */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-
           {/* LEFT: Sticky Sidebar (Ingredients & Controls) */}
           <motion.div className="lg:col-span-1 lg:sticky lg:top-28 self-start space-y-8" variants={containerVariants}>
             <motion.div variants={itemVariants} className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg ring-1 ring-gray-200/50 dark:ring-slate-700/50">
@@ -254,7 +241,6 @@ const RecipeDetailPage = () => {
                 setIsSpeaking={setIsSpeaking} />
             </motion.div>
           </motion.div>
-
           {/* RIGHT: Preparation Steps */}
           <motion.div className="lg:col-span-2" variants={containerVariants}>
             <motion.div variants={itemVariants}>
@@ -273,14 +259,11 @@ const RecipeDetailPage = () => {
             </motion.div>
           </motion.div>
         </div>
-
         {/* --- Reviews & Comments Section (Full Width) --- */}
         <motion.div className="mt-20 py-12 border-t border-gray-200 dark:border-slate-700" variants={containerVariants}>
           <SectionHeader title="Reviews & Comments" />
-
           {/* Container for vertical stacking */}
           <div className="space-y-12">
-
             {/* Comment Form - Takes full width */}
             <form onSubmit={handleComment} className="w-full bg-white dark:bg-slate-800 p-7 rounded-2xl shadow-lg ring-1 ring-gray-200/50 dark:ring-slate-700/50">
               <h4 className="font-bold text-2xl mb-4 text-gray-800 dark:text-white">Leave a Review</h4>
@@ -337,7 +320,6 @@ const RecipeDetailPage = () => {
               </div>
               {error && <p className="text-red-500 mt-3 font-semibold">{error}</p>}
             </form>
-
             {/* Comments List - Appears below the form */}
             <div className="w-full space-y-6">
               <AnimatePresence>
@@ -367,7 +349,6 @@ const RecipeDetailPage = () => {
       </div></>
   );
 };
-
 // --- Sub-components for better organization ---
 const SectionHeader = ({ title }) => (
   <div className="mb-6">
@@ -382,7 +363,6 @@ const SectionHeader = ({ title }) => (
     <div className="h-0.5 bg-gradient-to-r from-[#ff4b2b]/30 to-transparent mt-2 w-1/3" />
   </div>
 );
-
 const CommentCard = ({ comment }) => (
   <motion.div
     className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-md ring-1 ring-gray-200/50 dark:ring-slate-700/50"
@@ -405,5 +385,4 @@ const CommentCard = ({ comment }) => (
     </div>
   </motion.div>
 );
-
 export default RecipeDetailPage;
