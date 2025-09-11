@@ -2,7 +2,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
-
 // Animation Variants (can be moved to a shared file if many components use them)
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -48,5 +47,4 @@ const RecipeCard = ({ recipe, accent, onClick }) => (
     </div>
   </motion.div>
 );
-
 export default RecipeCard;
